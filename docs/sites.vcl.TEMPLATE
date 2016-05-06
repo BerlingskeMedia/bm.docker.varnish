@@ -1,0 +1,16 @@
+backend <BACKEND_NAME> {
+    .host = "nginx";
+    .port = "8080";
+    .probe = {
+    .request =
+        "GET /healthcheck.php HTTP/1.1"
+        "Accept: */*"
+        "Host: <BACKEND_HOST>"
+        "Connection: close";
+            .timeout = 2s;
+            .interval = 5s;
+            .window = 3;
+            .threshold = 2;
+            .expected_response = 200;
+    }
+}

@@ -1,2 +1,6 @@
-# bm.docker.varnish
-Docker image for varnish
+#Docker image for varnish
+
+Setup env variables:
+
+    BACKEND ""
+    OTHER_BACKENDS []

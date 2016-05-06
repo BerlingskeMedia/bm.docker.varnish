@@ -1,0 +1,4 @@
+sub vcl_recv {
+    set req.backend_hint = <BACKEND_NAME>;
+    include "other_vcl_recv.vcl";
+}
