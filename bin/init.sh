@@ -14,7 +14,7 @@ sed "s/<BACKEND_NAME>/$BACKEND_NAME/;s/<BACKEND_HOST>/$BACKEND/" < /etc/varnish/
 
 for OTHER_BACKEND in "${array[@]}"
 do
-	OTHER_BACKEND_NAME=$(echo $OTHER_BACKEND | sed 's/\.//g')
+    OTHER_BACKEND_NAME=$(echo "id$OTHER_BACKEND" | sed 's/\.//g')
     echo "$NGINX_CONTAINER_IP $OTHER_BACKEND" >> /etc/hosts
     sed "s/<BACKEND_NAME>/$OTHER_BACKEND_NAME/;s/<BACKEND_HOST>/$OTHER_BACKEND/" < /etc/varnish/docs/sites.vcl.TEMPLATE >> /etc/varnish/sites.vcl
     sed "s/<BACKEND_NAME>/$BACKEND_NAME/" < /etc/varnish/docs/vcl_recv.vcl.TEMPLATE > /etc/varnish/vcl_recv.vcl
