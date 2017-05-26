@@ -9,7 +9,7 @@ rm -f /etc/varnish/other_vcl_recv.vcl
 STR=$(echo $OTHER_BACKENDS | sed 's/[][]//g;s/\"//g')
 IFS=', ' read -r -a array <<< $STR
 
-BACKEND_NAME=$(echo "id_$BACKEND" | sed 's/\.//g')
+BACKEND_NAME=$(echo "id$BACKEND" | sed 's/\.//g')
 sed "s/<BACKEND_NAME>/$BACKEND_NAME/;s/<BACKEND_HOST>/$BACKEND/" < /etc/varnish/docs/sites.vcl.TEMPLATE >> /etc/varnish/sites.vcl
 
 for OTHER_BACKEND in "${array[@]}"
