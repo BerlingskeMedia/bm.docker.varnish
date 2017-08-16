@@ -24,6 +24,5 @@ DAEMON_OPTS="-j unix \
              -T localhost:6082 \
              -f /etc/varnish/default.vcl \
              -S /etc/varnish/secret \
-             -s malloc,256m"
-             -p shm_reclen=2048 \
-"
+             -s malloc,256m \
+             -p shm_reclen=2048"
