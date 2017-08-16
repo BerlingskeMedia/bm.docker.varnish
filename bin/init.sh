@@ -23,4 +23,4 @@ done
 
 
 echo "Starting supervisor:"
-/usr/bin/supervisord -n -c /etc/supervisor/supervisord.conf
+exec /usr/bin/supervisord -n -c /etc/supervisor/supervisord.conf
